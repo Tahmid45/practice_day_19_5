@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+  <h2>Delete Album</h2>
+  <p>Are you sure you want to delete "{{ album.album_name }}" by {{ album.musician.first_name }} {{ album.musician.last_name }}?</p>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Delete</button>
+    <a href="{% url 'album_list' %}">Cancel</a>
+  </form>
+{% endblock %}
